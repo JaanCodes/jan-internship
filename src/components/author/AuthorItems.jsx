@@ -14,7 +14,6 @@ const AuthorItems = () => {
                 <div className="author_list_pp">
                   <Link to="">
                     <img className="lazy" src={AuthorImage} alt="" />
-                    <p>hello</p>
                     <i className="fa fa-check"></i>
                   </Link>
                 </div>
