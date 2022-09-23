@@ -19,11 +19,7 @@ const TopSellers = () => {
                 <li key={index}>
                   <div className="author_list_pp">
                     <Link to="/author">
-                      <img
-                        className="lazy pp-author"
-                        src={AuthorImage}
-                        alt=""
-                      />
+                      <img className="lazy pp-author" src={AuthorImage} alt="" />
                       <i className="fa fa-check"></i>
                     </Link>
                   </div>
