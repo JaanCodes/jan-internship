@@ -18,16 +18,13 @@ const Landing = () => {
             <div className="col-md-6">
               <div className="spacer-single"></div>
               <h6>
-                <span className="text-uppercase id-color-2">
-                  Gigaland Market
-                </span>
+                <span className="text-uppercase id-color-2">Gigaland Market</span>
               </h6>
               <div className="spacer-10"></div>
               <h1>Create, sell or collect digital items.</h1>
               <p className="lead">
-                Unit of data stored on a digital ledger, called a blockchain,
-                that certifies a digital asset to be unique and therefore not
-                interchangeable
+                Unit of data stored on a digital ledger, called a blockchain, that certifies a digital asset to be
+                unique and therefore not interchangeable
               </p>
               <div className="spacer-10"></div>
               <Link className="btn-main lead" to="/explore">
