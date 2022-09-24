@@ -38,62 +38,70 @@ const NewItems = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div
+              className="text-center"
+              data-aos="fade-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="700"
+              data-aos-delay="0"
+            >
               <h2>New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {loading ? (
-            <Swiper
-              modules={[Navigation, Pagination, Scrollbar, A11y]}
-              spaceBetween={10}
-              slidesPerView={4}
-              breakpoints={{
-                1: {
-                  slidesPerView: 1,
-                },
-                580: {
-                  slidesPerView: 2,
-                },
-                768: {
-                  slidesPerView: 3,
-                },
-                1200: {
-                  slidesPerView: 4,
-                },
-              }}
-            >
-              {new Array(6).fill(0).map((_, index) => (
-                <SwiperSlide key={index}>
-                  <NFTSkeleton />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          ) : (
-            <OwlCarousel
-              className="owl-theme"
-              loop
-              margin={10}
-              nav
-              dots={false}
-              responsive={{ 0: { items: 1 }, 481: { items: 2 }, 768: { items: 3 }, 1200: { items: 4 } }}
-            >
-              {newItemsData.map((item) => (
-                <div key={item.id}>
-                  <NFT
-                    authorId={item.authorId}
-                    authorImage={item.authorImage}
-                    nftImage={item.nftImage}
-                    nftId={item.nftId}
-                    title={item.title}
-                    price={item.price}
-                    likes={item.likes}
-                    expiryDate={item.expiryDate}
-                  />
-                </div>
-              ))}
-            </OwlCarousel>
-          )}
+          <div data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="50">
+            {loading ? (
+              <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={10}
+                slidesPerView={4}
+                breakpoints={{
+                  1: {
+                    slidesPerView: 1,
+                  },
+                  580: {
+                    slidesPerView: 2,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                  },
+                  1200: {
+                    slidesPerView: 4,
+                  },
+                }}
+              >
+                {new Array(6).fill(0).map((_, index) => (
+                  <SwiperSlide key={index}>
+                    <NFTSkeleton />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            ) : (
+              <OwlCarousel
+                className="owl-theme"
+                loop
+                margin={10}
+                nav
+                dots={false}
+                responsive={{ 0: { items: 1 }, 481: { items: 2 }, 768: { items: 3 }, 1200: { items: 4 } }}
+              >
+                {newItemsData.map((item) => (
+                  <div key={item.id}>
+                    <NFT
+                      authorId={item.authorId}
+                      authorImage={item.authorImage}
+                      nftImage={item.nftImage}
+                      nftId={item.nftId}
+                      title={item.title}
+                      price={item.price}
+                      likes={item.likes}
+                      expiryDate={item.expiryDate}
+                    />
+                  </div>
+                ))}
+              </OwlCarousel>
+            )}
+          </div>
         </div>
       </div>
     </section>

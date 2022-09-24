@@ -12,11 +12,7 @@ const Explore = () => {
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
 
-        <section
-          id="subheader"
-          className="text-light"
-          style={{ background: `url("${SubHeader}") top` }}
-        >
+        <section id="subheader" className="text-light" style={{ background: `url("${SubHeader}") top` }}>
           <div className="center-y relative text-center">
             <div className="container">
               <div className="row">

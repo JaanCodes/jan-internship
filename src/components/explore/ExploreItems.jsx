@@ -40,7 +40,7 @@ const ExploreItems = () => {
 
   return (
     <>
-      <div>
+      <div data-aos="fade-in" data-aos-duration="900">
         <select
           id="filter-items"
           defaultValue=""
@@ -59,6 +59,8 @@ const ExploreItems = () => {
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
               style={{ display: "block", backgroundSize: "cover" }}
               key={index}
+              data-aos="fade-in"
+              data-aos-duration="900"
             >
               <NFTSkeleton />
             </div>
@@ -68,6 +70,8 @@ const ExploreItems = () => {
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
               style={{ display: "block", backgroundSize: "cover" }}
               key={nft.id}
+              data-aos="fade-in"
+              data-aos-duration="900"
             >
               <NFT
                 authorId={nft.authorId}

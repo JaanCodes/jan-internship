@@ -38,91 +38,98 @@ const HotCollections = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div
+              className="text-center"
+              data-aos="fade-in"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="700"
+              data-aos-delay="0"
+            >
               <h2>Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-
-          {loading ? (
-            <Swiper
-              modules={[Navigation, Pagination, Scrollbar, A11y]}
-              spaceBetween={10}
-              slidesPerView={4}
-              breakpoints={{
-                1: {
-                  slidesPerView: 1,
-                },
-                580: {
-                  slidesPerView: 2,
-                },
-                768: {
-                  slidesPerView: 3,
-                },
-                1200: {
-                  slidesPerView: 4,
-                },
-              }}
-            >
-              {new Array(6).fill(0).map((_, index) => (
-                <SwiperSlide key={index}>
-                  <div className="nft_coll">
-                    <div className="nft_wrap">
-                      <Link to="">
-                        <Skeleton width="100%" height="200px" />
-                      </Link>
+          <div data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="50">
+            {loading ? (
+              <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={10}
+                slidesPerView={4}
+                breakpoints={{
+                  1: {
+                    slidesPerView: 1,
+                  },
+                  580: {
+                    slidesPerView: 2,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                  },
+                  1200: {
+                    slidesPerView: 4,
+                  },
+                }}
+              >
+                {new Array(6).fill(0).map((_, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="nft_coll">
+                      <div className="nft_wrap">
+                        <Link to="">
+                          <Skeleton width="100%" height="200px" />
+                        </Link>
+                      </div>
+                      <div className="nft_coll_pp">
+                        <Link to="">
+                          <Skeleton width="50px" height="50px" borderRadius="50%" />
+                        </Link>
+                        <i className="fa fa-check"></i>
+                      </div>
+                      <div className="nft_coll_info">
+                        <Link to="/explore">
+                          <Skeleton width="100px" height="20px" />
+                        </Link>
+                        <br></br>
+                        <Skeleton width="60px" height="20px" />
+                      </div>
                     </div>
-                    <div className="nft_coll_pp">
-                      <Link to="">
-                        <Skeleton width="50px" height="50px" borderRadius="50%" />
-                      </Link>
-                      <i className="fa fa-check"></i>
-                    </div>
-                    <div className="nft_coll_info">
-                      <Link to="/explore">
-                        <Skeleton width="100px" height="20px" />
-                      </Link>
-                      <br></br>
-                      <Skeleton width="60px" height="20px" />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            ) : (
+              <OwlCarousel
+                className="owl-theme"
+                loop
+                margin={10}
+                nav
+                dots={false}
+                responsive={{ 0: { items: 1 }, 481: { items: 2 }, 768: { items: 3 }, 1200: { items: 4 } }}
+              >
+                {hotCollectionsData.map((collection) => (
+                  <div key={collection.id}>
+                    <div className="nft_coll">
+                      <div className="nft_wrap">
+                        <Link to={`/item-details/${collection.nftId}`}>
+                          <img src={collection.nftImage} className="lazy img-fluid" alt="" />
+                        </Link>
+                      </div>
+                      <div className="nft_coll_pp">
+                        <Link to={`/author/${collection.authorId}`}>
+                          <img className="lazy pp-coll" src={collection.authorImage} alt="" />
+                        </Link>
+                        <i className="fa fa-check"></i>
+                      </div>
+                      <div className="nft_coll_info">
+                        <Link to="/explore">
+                          <h4>{collection.title}</h4>
+                        </Link>
+                        <span>ERC-{collection.code}</span>
+                      </div>
                     </div>
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          ) : (
-            <OwlCarousel
-              className="owl-theme"
-              loop
-              margin={10}
-              nav
-              dots={false}
-              responsive={{ 0: { items: 1 }, 481: { items: 2 }, 768: { items: 3 }, 1200: { items: 4 } }}
-            >
-              {hotCollectionsData.map((collection) => (
-                <div key={collection.id}>
-                  <div className="nft_coll">
-                    <div className="nft_wrap">
-                      <Link to={`/item-details/${collection.nftId}`}>
-                        <img src={collection.nftImage} className="lazy img-fluid" alt="" />
-                      </Link>
-                    </div>
-                    <div className="nft_coll_pp">
-                      <Link to={`/author/${collection.authorId}`}>
-                        <img className="lazy pp-coll" src={collection.authorImage} alt="" />
-                      </Link>
-                      <i className="fa fa-check"></i>
-                    </div>
-                    <div className="nft_coll_info">
-                      <Link to="/explore">
-                        <h4>{collection.title}</h4>
-                      </Link>
-                      <span>ERC-{collection.code}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </OwlCarousel>
-          )}
+                ))}
+              </OwlCarousel>
+            )}
+          </div>
         </div>
       </div>
     </section>
