@@ -41,9 +41,9 @@ const NFTSkeleton = () => {
       </div>
       <div className="nft__item_info">
         <Link to="">
-          <Skeleton width="60%" height="30px" />
+          <Skeleton width="180px" height="30px" />
         </Link>
-        <Skeleton width="40%" height="20px" />
+        <Skeleton width="100px" height="20px" />
         <br></br>
         <Skeleton width="30px" height="15px" />
       </div>
