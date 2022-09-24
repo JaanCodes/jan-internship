@@ -13,7 +13,12 @@ const AuthorItems = ({ authorData, loading }) => {
                 </div>
               ))
             : authorData.nftCollection?.map((nft) => (
-                <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={nft.id}>
+                <div
+                  className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
+                  key={nft.id}
+                  data-aos="fade-in"
+                  data-aos-duration="400"
+                >
                   <NFT
                     authorId={""}
                     authorImage={authorData.authorImage}
