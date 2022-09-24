@@ -6,10 +6,17 @@ const NFT = ({ authorId, authorImage, nftImage, nftId, title, price, likes, expi
   return (
     <div className="nft__item">
       <div className="author_list_pp">
-        <Link to={`/author/${authorId}`} data-bs-toggle="tooltip" data-bs-placement="top">
-          <img className="lazy" src={authorImage} alt="" />
-          <i className="fa fa-check"></i>
-        </Link>
+        {authorId ? (
+          <Link to={authorId ? `/author/${authorId}` : ""} data-bs-toggle="tooltip" data-bs-placement="top">
+            <img className="lazy" src={authorImage} alt="" />
+            <i className="fa fa-check"></i>
+          </Link>
+        ) : (
+          <Link to="" data-bs-toggle="tooltip" data-bs-placement="top">
+            <img className="lazy" src={authorImage} alt="" />
+            <i className="fa fa-check"></i>
+          </Link>
+        )}
       </div>
       {expiryDate ? (
         <div className="de_countdown">

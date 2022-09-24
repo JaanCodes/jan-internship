@@ -70,7 +70,6 @@ const ExploreItems = () => {
               key={nft.id}
             >
               <NFT
-                id={nft.id}
                 authorId={nft.authorId}
                 authorImage={nft.authorImage}
                 nftImage={nft.nftImage}
